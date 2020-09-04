@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  gatesofhell:
+    build: .
+    container_name: gates-of-hell 
+    ports:
+      - 8080:80
+    links:
+      - frontendv1
+      - frontendv2
+  frontendv1:
+    build: ./sign2go-front-end-website
+    container_name: sign2go-front-end-website
+    ports:
+      - 8081:80 
+
+  frontendv2:
+    build: ./sign2go-frontend
+    container_name: sign2go-frontend
+    ports:
+      - 8082:80 
